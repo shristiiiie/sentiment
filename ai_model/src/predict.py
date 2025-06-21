@@ -20,9 +20,9 @@ def load_data(file_path):
     return X, y
 
 if __name__ == "__main__":
-    model_path = os.path.join("ai-model", "model", "model.pkl")
-    vectorizer_path = os.path.join("ai-model", "model", "vectorizer.pkl")
-    data_path = os.path.join("ai-model", "data", "filtered_dataset_expanded.csv")
+    model_path = os.path.join("model", "model.pkl")
+    vectorizer_path = os.path.join("model", "vectorizer.pkl")
+    data_path = os.path.join("data", "filtered_dataset_expanded.csv")
 
     model = load_model(model_path)
     vectorizer = load_model(vectorizer_path)
