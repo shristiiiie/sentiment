@@ -17,7 +17,7 @@ def test_clean_text():
 def test_load_data():
     """Test data loading"""
     # This assumes your test dataset exists
-    df = load_data("data/filtered_dataset_expanded.csv")
+    df = load_data("ai-model/data/filtered_dataset_expanded.csv")
 
     assert isinstance(df, pd.DataFrame)
     assert "Text" in df.columns
