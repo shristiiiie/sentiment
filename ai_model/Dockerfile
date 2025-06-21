@@ -6,4 +6,5 @@ COPY . .
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-CMD ["python3", "src/main.py"]  # Replace with correct script name
+# Keep container alive for exec calls
+CMD ["tail", "-f", "/dev/null"]
