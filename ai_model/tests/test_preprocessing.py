@@ -19,7 +19,7 @@ def test_load_data():
     """Test data loading"""
     # Resolve path to dataset relative to the root of the repository
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    path = os.path.join(base_dir, "data", "filtered_dataset_expanded.csv")
+    path = os.path.join(base_dir,"ai_model", "data", "filtered_dataset_expanded.csv")
 
     df = load_data(path)
 
