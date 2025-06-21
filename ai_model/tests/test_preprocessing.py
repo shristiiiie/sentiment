@@ -29,9 +29,10 @@ def test_preprocess_data():
     """Test data preprocessing"""
     # Create sample data
     df = pd.DataFrame({
-        "text": ["Good product!", "Bad service", "Okay experience"],
-        "sentiment": ["positive", "negative", "neutral"],
+    "Text": ["Good product!", "Bad service", "Okay experience"],
+    "Sentiment": ["positive", "negative", "neutral"],
     })
+
 
     processed = preprocess_data(df)
 
