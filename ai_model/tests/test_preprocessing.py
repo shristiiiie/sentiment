@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from src.data_preprocessing import preprocess_data, clean_text, load_data
 
@@ -14,8 +15,8 @@ def test_clean_text():
 
 def test_load_data():
     """Test data loading"""
-    df = load_data('data/filtered_dataset_expanded.csv')
-
+    path = os.path.join("data", "filtered_dataset_expanded.csv")
+    df = load_data(path)
     assert isinstance(df, pd.DataFrame)
     assert "Text" in df.columns
     assert "Sentiment" in df.columns
