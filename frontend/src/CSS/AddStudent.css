@@ -1,0 +1,212 @@
+.add-student-page {
+  display: flex;
+  transition: margin-left 0.3s ease;
+}
+
+.add-student-page.sidebar-open .main-content {
+  margin-left: 240px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.student-page {
+  display: flex;
+  height: 100vh;
+  background: #f9f4f4;
+}
+
+.page-header {
+  background: #e5fafa;
+  color: #00CED1;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.page-header h2 {
+  margin: 0 0 8px 0;
+}
+
+.form-section {
+  background: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 2px solid #00CED1;
+}
+
+.student-form .form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.student-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #757575;
+  font-size: 0.95rem;
+}
+
+
+/* New styles for dropdown and responsive form */
+
+.student-form select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #757575;
+  border-radius: 6px;
+  background-color: white;
+  color: #757575;
+  font-size: 0.95rem;
+}
+
+.student-form .form-row {
+  flex-wrap: wrap;
+}
+
+.student-form .form-row > * {
+  min-width: 180px;
+}
+
+.add-btn {
+  background-color: #00CED1 !important;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.students-list {
+  background: none;
+  color: #00CED1;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #00CED1;
+}
+
+.student-card {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.add-student-page {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .main-content {
+  margin-left: 220px;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.toast-success {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.student-card {
+  background-color: #e5fafa;
+  color: #000000;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.student-card strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.student-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  margin-right: 8px;
+}
+
+.student-card button.edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.student-card button.edit-btn:hover {
+  background-color: #45a049;
+}
+
+.student-card button.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.student-card button.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* For the search and sort controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.controls input[type="text"],
+.controls select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  flex: 1 1 200px;
+}
+
+/* Optional: Enhance student card spacing */
+.student-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}

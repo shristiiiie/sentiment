@@ -1,0 +1,130 @@
+.create-form {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 6px 20px #e5fafa;
+}
+
+.create-form h2 {
+  margin-bottom: 1rem;
+  color: #8B1C1C;
+}
+
+.question-block {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px dashed #e5fafa;
+  border-radius: 10px;
+}
+
+.question-block input {
+  display: block;
+  width: 97%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #00CED1;
+  border-radius: 6px;
+}
+
+.question-block button {
+  background-color: #00CED1;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: block;
+  margin: 10px auto;
+}
+
+.question-block button:hover {
+  background-color: #00CED1;
+}
+
+.submit-btn {
+  background-color: #00CED1;
+  padding: 8px 13px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 1rem;
+  color: white;
+  border: none;
+}
+
+.submit-btn:hover {
+  background-color: #e5fafa;
+  color: #00CED1 !important;
+}
+
+.add-question-btn {
+  background-color: #00CED1;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-right: 20px;
+}
+
+.add-question-btn:hover {
+  background-color: #00CED1;
+}
+
+.form-type {
+  margin: 1rem auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-type label {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #00CED1;
+}
+
+.form-type select,
+.form-type input {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #00CED1;
+  background-color: #e5fafa;
+  font-size: 14px;
+}
+
+/* Additional Comments Styling */
+.additional-comments {
+  margin-top: 2rem;
+}
+
+.additional-comments label {
+  font-weight: bold;
+  color: #00CED1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.additional-comments textarea {
+  width: 97%;
+  min-height: 100px;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #00CED1;
+  background-color: #e5fafa;
+  color: #666;
+  font-size: 14px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.word-count {
+  text-align: right;
+  margin-top: 0.3rem;
+  font-size: 12px;
+  color: #888;
+}

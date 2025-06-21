@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+}
+
+.teacher-page {
+  display: flex;
+  height:calc(100vh - 100px);
+  background-color: #e5fafa;
+  margin-top: 100px;
+  transition: all 0.3s ease;
+  
+
+  
+}
+
+/* Main */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  overflow: auto;
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .main-content {
+  margin-left: 250px;
+}
+
+/* Section Box */
+.section-box {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.section-box.red {
+  background-color: #e5fafa;
+  color: #00CED1;
+}
+
+.students-list {
+  background: none;
+  color: #00CED1;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1.5px solid #00CED1;
+  box-shadow: 0 4px 12px rgba(0, 206, 209, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.form-grid input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1.5px solid #e5fafa; 
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Button */
+.add-btn {
+  background-color: #8b1e1e;
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Teacher Card */
+.teacher-card {
+  background-color: #00CED1;
+  color: white;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid white;
+}
+
+/* Toast Notification */
+.toast-success {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+  .add-btn,
+  .edit-btn,
+  .delete-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.7rem;
+  }
+  /* Edit & Delete Buttons */
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  margin-right: 0.5rem;
+  
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Course Dropdown Styling */
+.form-grid select[name="course"] {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1.5px solid #e5fafa;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #757575;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%2300CED1' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+/* Make the course dropdown span across two columns */
+.form-grid select[name="course"] {
+  grid-column: span 2;
+}
+
+
+.toast-success {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 999;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+

@@ -1,0 +1,37 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.8.6-openjdk-17'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', 
+                url: 'https://github.com/shristiiiie/student-feedback-sentiment-analysis.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+        
+        stage('Build Image') {
+            steps {
+                script {
+                    docker.build("student-feedback-backend")
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
