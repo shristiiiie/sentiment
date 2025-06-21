@@ -1,7 +1,6 @@
 import pandas as pd
 from src.data_preprocessing import preprocess_data, clean_text, load_data
 
-
 def test_clean_text():
     """Test text cleaning function"""
     text = "This is AMAZING!!! @user #hashtag http://example.com"
@@ -13,26 +12,22 @@ def test_clean_text():
     assert "http://" not in cleaned
     assert cleaned.islower()
 
-
 def test_load_data():
     """Test data loading"""
-    # This assumes your test dataset exists
-    pd.read_csv('data/filtered_dataset_expanded.csv')
+    df = load_data('data/filtered_dataset_expanded.csv')
 
     assert isinstance(df, pd.DataFrame)
     assert "Text" in df.columns
     assert "Sentiment" in df.columns
     assert len(df) > 0
 
-
 def test_preprocess_data():
     """Test data preprocessing"""
     # Create sample data
     df = pd.DataFrame({
-    "Text": ["Good product!", "Bad service", "Okay experience"],
-    "Sentiment": ["positive", "negative", "neutral"],
+        "Text": ["Good product!", "Bad service", "Okay experience"],
+        "Sentiment": ["positive", "negative", "neutral"],
     })
-
 
     processed = preprocess_data(df)
 
