@@ -66,7 +66,7 @@ assert avg < 0.2, 'Model too slow!'
         stage('Build Docker Image') {
             steps {
                 script {
-                    def image = docker.build("shedocks/sentiment-analyzer:${params.MODEL_VERSION}", "ai_model")
+                    def image = docker.build("shedocks/sentiment-feedbackml:${params.MODEL_VERSION}", "ai_model")
                     docker.withRegistry('https://registry.hub.docker.com', 'shristi') {
                         image.push("${params.MODEL_VERSION}")
                         image.push("latest")
