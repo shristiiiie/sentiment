@@ -2,7 +2,7 @@ name: Scheduled Model Retraining
 
 on:
   schedule:
-    - cron: '0 2 * * 0'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       force_retrain:
@@ -41,6 +41,7 @@ jobs:
         else
           echo "should_retrain=true" >> $GITHUB_OUTPUT
         fi
+
 
     - name: Retrain model
       if: steps.data-check.outputs.should_retrain == 'true'
