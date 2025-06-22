@@ -57,7 +57,7 @@ def balance_data(X, y):
 def main():
     # Get absolute path relative to this file
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    data_path = os.path.join(base_dir, 'data', 'filtered_dataset_expanded.csv')
+    data_path = os.path.join(base_dir, 'ai_model', 'data', 'filtered_dataset_expanded.csv')
     model_dir = os.path.join(base_dir, 'model')
     os.makedirs(model_dir, exist_ok=True)
 
