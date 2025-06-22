@@ -34,7 +34,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ${{ secrets.DOCKER_USERNAME }}/sentimentAnalyzerModel
+        images: ${{ secrets.DOCKER_USERNAME }}/sentiment-analyzer-model
         tags: |
           type=ref,event=branch
           type=ref,event=pr
@@ -49,7 +49,7 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/sentimentAnalyzerModel:latest
-          ${{ secrets.DOCKER_USERNAME }}/sentimentAnalyzerModel:${{ github.sha }}
+          ${{ secrets.DOCKER_USERNAME }}/sentiment-analyzer-model:latest
+          ${{ secrets.DOCKER_USERNAME }}/sentiment-analyzer-model:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
