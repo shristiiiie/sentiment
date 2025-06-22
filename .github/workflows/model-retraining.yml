@@ -45,7 +45,8 @@ jobs:
     - name: Retrain model
       if: steps.data-check.outputs.should_retrain == 'true'
       run: |
-        python ai_model/src/model_training.py
+        cd ai_model
+        python src/model_training.py
 
     - name: Validate new model
       if: steps.data-check.outputs.should_retrain == 'true'
