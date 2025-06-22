@@ -90,7 +90,7 @@ assert avg < 0.2, 'Model too slow!'
                    echo "=== Container Logs ==="
                    docker logs sentiment-staging-${BUILD_NUMBER} || true
 
-                   docker exec sentiment-staging-${BUILD_NUMBER} bash -c "PYTHONPATH=ai_model python3 -c 'from src.predict import predict_sentiment, load_model; model = load_model(\\\"ai_model/model/model.pkl\\\"); vectorizer = load_model(\\\"ai_model/model/vectorizer.pkl\\\"); print(\\\"Health Check:\\\", predict_sentiment(model, vectorizer, \\\"This is great\\\"))'"
+                   docker exec sentiment-staging-${BUILD_NUMBER} bash -c "PYTHONPATH=ai_model python3 -c 'from src.predict import predict_sentiment, load_model; model = load_model(\\\"ai_model/model/model.pkl\\\"); vectorizer = load_model(\\\"model/vectorizer.pkl\\\"); print(\\\"Health Check:\\\", predict_sentiment(model, vectorizer, \\\"This is great\\\"))'"
                """
             }
         }
