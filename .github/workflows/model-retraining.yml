@@ -51,10 +51,11 @@ jobs:
     - name: Validate new model
       if: steps.data-check.outputs.should_retrain == 'true'
       run: |
+        cd ai_model
         python -c "
-        from ai_model.src.predict import predict_sentiment, load_model
-        model = load_model('ai_model/model/model.pkl')
-        vectorizer = load_model('ai_model/model/vectorizer.pkl')
+        from src.predict import predict_sentiment, load_model
+        model = load_model('model/model.pkl')
+        vectorizer = load_model('model/vectorizer.pkl')
         pred = predict_sentiment(model, vectorizer, 'Great job!')
         print(f'Prediction: {pred}')
         "
