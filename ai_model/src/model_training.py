@@ -57,22 +57,17 @@ def balance_data(X, y):
 def main():
     # Get absolute path relative to this file
     def main():
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    print(f"Base directory: {base_dir}")
-    print(f"Current file location: {__file__}")
-    print(f"Directory of current file: {os.path.dirname(__file__)}")
-    
+    base_dir = os.path.dirname(os.path.dirname(__file__))
     data_path = os.path.join(base_dir, 'data', 'filtered_dataset_expanded.csv')
-    print(f"Looking for data at: {data_path}")
-    print(f"Does file exist? {os.path.exists(data_path)}")
-    
-    # Also check if the file exists in ai_model/data
-    alt_path = os.path.join(base_dir, 'ai_model', 'data', 'filtered_dataset_expanded.csv')
-    print(f"Alternative path: {alt_path}")
-    print(f"Alt path exists? {os.path.exists(alt_path)}")
     model_dir = os.path.join(base_dir, 'model')
     os.makedirs(model_dir, exist_ok=True)
 
+    # Add debug prints to verify paths
+    print(f"Script location: {__file__}")
+    print(f"Base directory: {base_dir}")
+    print(f"Looking for data at: {data_path}")
+    print(f"Data file exists: {os.path.exists(data_path)}")
+    
     data = load_and_preprocess_data(data_path)
     X, y = balance_data(data['Text'], data['Sentiment'])
 
