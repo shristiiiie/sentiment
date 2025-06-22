@@ -55,9 +55,10 @@ def balance_data(X, y):
 
 
 def main():
-    # Use relative path for portability
-    data_path = os.path.join('data', 'filtered_dataset_expanded.csv')
-    model_dir = os.path.join('model')
+    # Get absolute path relative to this file
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    data_path = os.path.join(base_dir, 'data', 'filtered_dataset_expanded.csv')
+    model_dir = os.path.join(base_dir, 'model')
     os.makedirs(model_dir, exist_ok=True)
 
     data = load_and_preprocess_data(data_path)
