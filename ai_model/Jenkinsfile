@@ -80,53 +80,37 @@ assert avg < 0.2, 'Model too slow!'
                expression { params.ENVIRONMENT == 'staging' }
            }
            steps {
-               script {
-                   // Find an available port starting from 8001
-                   def stagingPort = sh(
-                       script: '''
-                           for port in {8001..8050}; do
-                               if ! netstat -tuln | grep -q ":$port "; then
-                                   echo $port
-                                   break
-                               fi
-                           done
-                       ''',
-                       returnStdout: true
-                   ).trim()
+               sh """
+                   echo "=== Staging Deployment ==="
                    
-                   if (!stagingPort) {
-                       stagingPort = "8001"
-                   }
+                   # Clean up ALL staging containers first
+                   docker ps -q --filter "name=sentiment-staging" | xargs -r docker stop || true
+                   docker ps -aq --filter "name=sentiment-staging" | xargs -r docker rm || true
                    
-                   sh """
-                       # Clean up any existing staging containers
-                       docker ps -a --filter "name=sentiment-staging" --format "{{.Names}}" | xargs -r docker stop || true
-                       docker ps -a --filter "name=sentiment-staging" --format "{{.Names}}" | xargs -r docker rm || true
-                       
-                       # Check what's using the ports
-                       echo "=== Port Usage Check ==="
-                       netstat -tuln | grep ":800[0-9]" || echo "No processes found on 800x ports"
-                       docker ps --filter "publish=8001" || echo "No Docker containers on port 8001"
-                       
-                       # Wait for cleanup
-                       sleep 5
-
-                       echo "Attempting to start container on port: ${stagingPort}"
-                       docker run -d --name sentiment-staging-${BUILD_NUMBER} -p ${stagingPort}:8000 shedocks/sentiment-feedbackml:${params.MODEL_VERSION}
-                       sleep 10
-
-                       echo "=== Container Status ==="
-                       docker ps --filter "name=sentiment-staging-${BUILD_NUMBER}"
-                       
-                       echo "=== Container Logs ==="
-                       docker logs sentiment-staging-${BUILD_NUMBER} || true
-
-                       echo "=== Health Check on port ${stagingPort} ==="
-                       docker exec sentiment-staging-${BUILD_NUMBER} bash -c "PYTHONPATH=ai_model python3 -c 'from src.predict import predict_sentiment, load_model; model = load_model(\\\"model/model.pkl\\\"); vectorizer = load_model(\\\"model/vectorizer.pkl\\\"); print(\\\"Health Check:\\\", predict_sentiment(model, vectorizer, \\\"This is great\\\"))'"
-                   """
-               }
-            }
+                   # Clean up any container using port 8002 (using different port to avoid conflicts)
+                   docker ps -q --filter "publish=8002" | xargs -r docker stop || true
+                   docker ps -aq --filter "publish=8002" | xargs -r docker rm || true
+                   
+                   # Wait for cleanup
+                   sleep 5
+                   
+                   # Start new container on port 8002
+                   docker run -d --name sentiment-staging-${BUILD_NUMBER} -p 8002:8000 shedocks/sentiment-feedbackml:${params.MODEL_VERSION}
+                   
+                   # Wait for startup
+                   sleep 10
+                   
+                   echo "=== Container Status ==="
+                   docker ps --filter "name=sentiment-staging-${BUILD_NUMBER}"
+                   
+                   echo "=== Container Logs ==="
+                   docker logs sentiment-staging-${BUILD_NUMBER} || true
+                   
+                   echo "✅ Staging deployed on port 8002"
+               """
+           }
         }
+                    
 
         stage('Deploy to Production') {
             when {
